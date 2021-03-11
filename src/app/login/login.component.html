@@ -1,0 +1,29 @@
+<div class="login-page">
+  <div class="form">
+    <form class="example-form acrylic" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <h2 style="color: white;">Login</h2>
+      <hr class="hr1">
+      <mat-form-field class="example-full-width">
+        <mat-label style="color: white; font-size: 2px;">Nickname</mat-label>
+        <hr class="none">
+        <hr class="none">
+        <input matInput placeholder="Enter your nickname" formControlName="nickname" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!loginForm.get('nickname').valid && loginForm.get('nickname').touched">Please
+            enter your
+            nickname</span>
+        </mat-error>
+      </mat-form-field>
+      <hr class="none">
+      <hr class="none">
+      <div class="button-row">
+        <button type="submit" [disabled]="!loginForm.valid" mat-fab color="primary">
+          <mat-icon>login</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+  <script>$('.message a').click(function () {
+      $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });</script>
+</div>

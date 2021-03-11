@@ -1,0 +1,22 @@
+<div class="container">
+  <form class="form acrylic" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value)">
+    <h2 style="color: white;">Enter new Room</h2>
+    <hr class="hr1">
+    <mat-form-field style="text-align: center;" class="example-full-width">
+      <mat-label>Room Name</mat-label>
+      <hr class="none">
+      <hr class="none">
+      <input matInput placeholder="Enter room name" formControlName="roomname" [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!roomForm.get('roomname').valid && roomForm.get('roomname').touched">Enter room name</span>
+      </mat-error>
+    </mat-form-field>
+    <hr class="none">
+    <hr class="none">
+    <div class="button-row">
+      <button type="submit" [disabled]="!roomForm.valid" mat-fab color="primary">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>
